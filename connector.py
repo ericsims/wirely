@@ -1,4 +1,5 @@
 import drawSvg as draw
+import yaml
 
 class Connector:
 
@@ -12,8 +13,9 @@ class Connector:
     def render(self):
         pinTextHeight = 8
         pinTextMargin = 1
-        pinTextColor = 'black'
+        pinTextColor = "black"
         pinTextLen = 10
+        self.connectordef['nodes'] = []
         # determine length of pin number boxes
         for p in self.connectordef['pins']:
             len_ = len(str(p))*pinTextHeight*.7+pinTextMargin*4
@@ -23,9 +25,9 @@ class Connector:
             self.d.append(draw.Rectangle(self.x_off+pinTextMargin, self.y_off+pinTextMargin+(pinTextHeight+pinTextMargin*2)*i, pinTextLen, pinTextMargin*2+pinTextHeight, stroke='black', stroke_width=1, fill='none'))
             self.d.append(draw.Text(str(p), pinTextHeight, self.x_off+pinTextMargin*2, self.y_off+(pinTextMargin*2+pinTextHeight)*i+pinTextMargin*2, fill=pinTextColor))
             if self.mirror:
-                node_ = (self.x_off+pinTextMargin, self.y_off+(pinTextMargin*2+pinTextHeight)*i+pinTextMargin+(pinTextMargin*2+pinTextHeight)/2)
+                node_ = (self.x_off+pinTextMargin, int(self.y_off+(pinTextMargin*2+pinTextHeight)*i+pinTextMargin+(pinTextMargin*2+pinTextHeight)/2))
             else:
-                node_ = (self.x_off+pinTextMargin+pinTextLen, self.y_off+(pinTextMargin*2+pinTextHeight)*i+pinTextMargin+(pinTextMargin*2+pinTextHeight)/2)
+                node_ = (self.x_off+pinTextMargin+pinTextLen, int(self.y_off+(pinTextMargin*2+pinTextHeight)*i+pinTextMargin+(pinTextMargin*2+pinTextHeight)/2))
             self.connectordef['nodes'].append(node_)
             self.d.append(draw.Circle(node_[0],node_[1],1))
         # label connector
@@ -33,33 +35,21 @@ class Connector:
         # TODO: Move Label and PN to
         return self.d
 
-sheetsize = (300,250)
+    def swap(self, pin1, pin2):
+        pin1_index = self.connectordef['pins'].index(pin1)
+        pin2_index = self.connectordef['pins'].index(pin2)
+        temp = self.connectordef['pins'][pin1_index]
+        self.connectordef['pins'][pin1_index] = self.connectordef['pins'][pin2_index]
+        self.connectordef['pins'][pin2_index] = temp
+        
 
-d = draw.Drawing(sheetsize[0], sheetsize[1])
-d.append(draw.Rectangle(0,0,sheetsize[0],sheetsize[1], fill='#FFFFFF'))
+    def importConnector(con_name, refdes):
+        with open(F"connectors/{con_name}.yaml", "r") as stream:
+            try:
+                con = yaml.safe_load(stream)
+                con['nodes'] = []
+                con['refdes'] = refdes
+                return con
+            except yaml.YAMLError as exc:
+                print(exc)
 
-connectordef = {
-    'refdes': 'J1',
-    'PN': 'MIL-BLAH-BLAH',
-    'pins': [1, 2, 3, 4, 5, 'abc'],
-    'nodes': []
-}
-
-J1 = Connector(d, 10, 10, False, connectordef)
-d = J1.render()
-
-J1 = Connector(d, 10, 100, False, connectordef)
-d = J1.render()
-
-connectordef = {
-    'refdes': 'P1',
-    'PN': 'MIL-BLAH-BLAH',
-    'pins': [1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14 ,15],
-    'nodes': []
-}
-
-
-P1 = Connector(d, 250, 10, True, connectordef)
-d = P1.render()
-
-d.saveSvg('example.svg')
