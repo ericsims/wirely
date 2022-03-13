@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="300" height="250" viewBox="0 -250 300 250">
+<defs>
+</defs>
+<rect x="0" y="-250" width="300" height="250" fill="#FFFFFF" />
+<rect x="11" y="-21" width="20.799999999999997" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="12" y="-12" font-size="8" fill="black" dy="0em">1</text>
+<circle cx="31.799999999999997" cy="-16.0" r="1" />
+<rect x="11" y="-31" width="20.799999999999997" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="12" y="-22" font-size="8" fill="black" dy="0em">2</text>
+<circle cx="31.799999999999997" cy="-26.0" r="1" />
+<rect x="11" y="-41" width="20.799999999999997" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="12" y="-32" font-size="8" fill="black" dy="0em">3</text>
+<circle cx="31.799999999999997" cy="-36.0" r="1" />
+<rect x="11" y="-51" width="20.799999999999997" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="12" y="-42" font-size="8" fill="black" dy="0em">4</text>
+<circle cx="31.799999999999997" cy="-46.0" r="1" />
+<rect x="11" y="-61" width="20.799999999999997" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="12" y="-52" font-size="8" fill="black" dy="0em">5</text>
+<circle cx="31.799999999999997" cy="-56.0" r="1" />
+<rect x="11" y="-71" width="20.799999999999997" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="12" y="-62" font-size="8" fill="black" dy="0em">abc</text>
+<circle cx="31.799999999999997" cy="-66.0" r="1" />
+<text x="10" y="-72" font-size="12" fill="black" dy="0em">J1</text>
+<rect x="11" y="-111" width="20.799999999999997" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="12" y="-102" font-size="8" fill="black" dy="0em">1</text>
+<circle cx="31.799999999999997" cy="-106.0" r="1" />
+<rect x="11" y="-121" width="20.799999999999997" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="12" y="-112" font-size="8" fill="black" dy="0em">2</text>
+<circle cx="31.799999999999997" cy="-116.0" r="1" />
+<rect x="11" y="-131" width="20.799999999999997" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="12" y="-122" font-size="8" fill="black" dy="0em">3</text>
+<circle cx="31.799999999999997" cy="-126.0" r="1" />
+<rect x="11" y="-141" width="20.799999999999997" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="12" y="-132" font-size="8" fill="black" dy="0em">4</text>
+<circle cx="31.799999999999997" cy="-136.0" r="1" />
+<rect x="11" y="-151" width="20.799999999999997" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="12" y="-142" font-size="8" fill="black" dy="0em">5</text>
+<circle cx="31.799999999999997" cy="-146.0" r="1" />
+<rect x="11" y="-161" width="20.799999999999997" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="12" y="-152" font-size="8" fill="black" dy="0em">abc</text>
+<circle cx="31.799999999999997" cy="-156.0" r="1" />
+<text x="10" y="-162" font-size="12" fill="black" dy="0em">J1</text>
+<rect x="251" y="-21" width="15.2" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="252" y="-12" font-size="8" fill="black" dy="0em">1</text>
+<circle cx="251" cy="-16.0" r="1" />
+<rect x="251" y="-31" width="15.2" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="252" y="-22" font-size="8" fill="black" dy="0em">2</text>
+<circle cx="251" cy="-26.0" r="1" />
+<rect x="251" y="-41" width="15.2" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="252" y="-32" font-size="8" fill="black" dy="0em">3</text>
+<circle cx="251" cy="-36.0" r="1" />
+<rect x="251" y="-51" width="15.2" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="252" y="-42" font-size="8" fill="black" dy="0em">4</text>
+<circle cx="251" cy="-46.0" r="1" />
+<rect x="251" y="-61" width="15.2" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="252" y="-52" font-size="8" fill="black" dy="0em">5</text>
+<circle cx="251" cy="-56.0" r="1" />
+<rect x="251" y="-71" width="15.2" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="252" y="-62" font-size="8" fill="black" dy="0em">7</text>
+<circle cx="251" cy="-66.0" r="1" />
+<rect x="251" y="-81" width="15.2" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="252" y="-72" font-size="8" fill="black" dy="0em">8</text>
+<circle cx="251" cy="-76.0" r="1" />
+<rect x="251" y="-91" width="15.2" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="252" y="-82" font-size="8" fill="black" dy="0em">9</text>
+<circle cx="251" cy="-86.0" r="1" />
+<rect x="251" y="-101" width="15.2" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="252" y="-92" font-size="8" fill="black" dy="0em">10</text>
+<circle cx="251" cy="-96.0" r="1" />
+<rect x="251" y="-111" width="15.2" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="252" y="-102" font-size="8" fill="black" dy="0em">11</text>
+<circle cx="251" cy="-106.0" r="1" />
+<rect x="251" y="-121" width="15.2" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="252" y="-112" font-size="8" fill="black" dy="0em">12</text>
+<circle cx="251" cy="-116.0" r="1" />
+<rect x="251" y="-131" width="15.2" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="252" y="-122" font-size="8" fill="black" dy="0em">13</text>
+<circle cx="251" cy="-126.0" r="1" />
+<rect x="251" y="-141" width="15.2" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="252" y="-132" font-size="8" fill="black" dy="0em">14</text>
+<circle cx="251" cy="-136.0" r="1" />
+<rect x="251" y="-151" width="15.2" height="10" stroke="black" stroke-width="1" fill="none" />
+<text x="252" y="-142" font-size="8" fill="black" dy="0em">15</text>
+<circle cx="251" cy="-146.0" r="1" />
+<text x="250" y="-152" font-size="12" fill="black" dy="0em">P1</text>
+</svg>
