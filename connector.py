@@ -3,6 +3,8 @@ import yaml
 
 class Connector:
 
+    connectorList = {}
+
     def __init__(self, d, x_off, y_off, mirror, connectordef):
         self.d = d
         self.x_off = x_off
@@ -10,7 +12,7 @@ class Connector:
         self.mirror = mirror
         self.connectordef = connectordef
 
-    def render(self):
+    def render(self, render=True):
         pinTextHeight = 8
         pinTextMargin = 1
         pinTextColor = "black"
@@ -22,16 +24,18 @@ class Connector:
             if len_ > pinTextLen:
                 pinTextLen = len_
         for i, p in enumerate(self.connectordef['pins']):
-            self.d.append(draw.Rectangle(self.x_off+pinTextMargin, self.y_off+pinTextMargin+(pinTextHeight+pinTextMargin*2)*i, pinTextLen, pinTextMargin*2+pinTextHeight, stroke='black', stroke_width=1, fill='none'))
-            self.d.append(draw.Text(str(p), pinTextHeight, self.x_off+pinTextMargin*2, self.y_off+(pinTextMargin*2+pinTextHeight)*i+pinTextMargin*2, fill=pinTextColor))
             if self.mirror:
                 node_ = (self.x_off+pinTextMargin, int(self.y_off+(pinTextMargin*2+pinTextHeight)*i+pinTextMargin+(pinTextMargin*2+pinTextHeight)/2))
             else:
                 node_ = (self.x_off+pinTextMargin+pinTextLen, int(self.y_off+(pinTextMargin*2+pinTextHeight)*i+pinTextMargin+(pinTextMargin*2+pinTextHeight)/2))
             self.connectordef['nodes'].append(node_)
-            self.d.append(draw.Circle(node_[0],node_[1],1))
+            if render:
+                self.d.append(draw.Rectangle(self.x_off+pinTextMargin, self.y_off+pinTextMargin+(pinTextHeight+pinTextMargin*2)*i, pinTextLen, pinTextMargin*2+pinTextHeight, stroke='black', stroke_width=1, fill='none'))
+                self.d.append(draw.Text(str(p), pinTextHeight, self.x_off+pinTextMargin*2, self.y_off+(pinTextMargin*2+pinTextHeight)*i+pinTextMargin*2, fill=pinTextColor))
+                self.d.append(draw.Circle(node_[0],node_[1],1))
         # label connector
-        self.d.append(draw.Text(str(self.connectordef['refdes']), 12, self.x_off, self.y_off+(pinTextMargin*2+pinTextHeight)*len(self.connectordef['pins'])+pinTextMargin*2, fill=pinTextColor))
+        if render:
+            self.d.append(draw.Text(str(self.connectordef['refdes']), 12, self.x_off, self.y_off+(pinTextMargin*2+pinTextHeight)*len(self.connectordef['pins'])+pinTextMargin*2, fill=pinTextColor))
         # TODO: Move Label and PN to
         return self.d
 
@@ -44,12 +48,16 @@ class Connector:
         
 
     def importConnector(con_name, refdes):
-        with open(F"connectors/{con_name}.yaml", "r") as stream:
-            try:
-                con = yaml.safe_load(stream)
-                con['nodes'] = []
-                con['refdes'] = refdes
-                return con
-            except yaml.YAMLError as exc:
-                print(exc)
+        if con_name in Connector.connectorList:
+            con = dict(Connector.connectorList[con_name])
+            con['nodes'] = []
+            con['refdes'] = refdes
+            return con
+        else:
+            with open(F"connectors/{con_name}.yaml", "r") as stream:
+                try:
+                    Connector.connectorList[con_name] = yaml.safe_load(stream)
+                    return Connector.importConnector(con_name, refdes)
+                except yaml.YAMLError as exc:
+                    print(exc)
 
